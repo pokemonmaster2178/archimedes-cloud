@@ -1,6 +1,5 @@
 import streamlit as st
 from openai import OpenAI
-import re
 
 # Initialize xAI client using your console.x.ai key pointing to their web address
 client = OpenAI(
@@ -31,7 +30,7 @@ if user_speech := st.chat_input("Speak to Archimedes..."):
         message_placeholder = st.empty()
         try:
             completion = client.chat.completions.create(
-               model="grok-beta", # Standard flagship Grok model
+                model="grok-beta",
                 messages=[
                     {"role": "system", "content": system_context},
                     * [{"role": m["role"], "content": m["content"]} for m in st.session_state.messages]
@@ -40,5 +39,5 @@ if user_speech := st.chat_input("Speak to Archimedes..."):
             spoken_reply = completion.choices[0].message.content.strip()
             message_placeholder.markdown(spoken_reply)
             st.session_state.messages.append({"role": "assistant", "content": spoken_reply})
-       except Exception as e:
-         message_placeholder.markdown(f"⚠️ *Error:* {e}")
+        except Exception as e:
+            message_placeholder.markdown(f"⚠️ *Error:* {e}")
