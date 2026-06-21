@@ -36,7 +36,7 @@ st.markdown("""
         border-radius: 5px;
     }
     </style>
-    """, unsafe_with_html=True)
+    """, unsafe_allow_html=True)
 
 st.title("⚡ Archimedes: Jarvis Core")
 st.caption("Advanced Workshop Intelligence System Architecture — Active")
@@ -84,7 +84,7 @@ if input_received:
         st.markdown(input_received)
     st.session_state.messages.append({"role": "user", "content": input_received})
 
-    # Updated personality profile to mimic a sophisticated workspace assistant
+    # Personality profile to mimic a sophisticated workspace assistant
     system_context = "You are Archimedes, an elite AI terminal modeled closely after JARVIS. Speak confidently, intelligently, and with an efficient, calm demeanor. Keep responses snappy."
 
     with st.chat_message("assistant"):
