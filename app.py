@@ -40,5 +40,5 @@ if user_speech := st.chat_input("Speak to Archimedes..."):
             spoken_reply = completion.choices[0].message.content.strip()
             message_placeholder.markdown(spoken_reply)
             st.session_state.messages.append({"role": "assistant", "content": spoken_reply})
-        except Exception as e:
-            message_placeholder.markdown("⚠️ *My internal cognitive gears seem to be slipping.*")
+       except Exception as e:
+         message_placeholder.markdown(f"⚠️ *Error:* {e}")
