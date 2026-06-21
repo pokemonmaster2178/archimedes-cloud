@@ -31,7 +31,7 @@ if user_speech := st.chat_input("Speak to Archimedes..."):
         message_placeholder = st.empty()
         try:
             completion = client.chat.completions.create(
-                model="grok-2-1212", # Standard flagship Grok model
+               model="grok-beta", # Standard flagship Grok model
                 messages=[
                     {"role": "system", "content": system_context},
                     * [{"role": m["role"], "content": m["content"]} for m in st.session_state.messages]
